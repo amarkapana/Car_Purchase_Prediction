@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Purchase Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            transform: translateY(-10%);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Car Purchase Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+
+            <label for="salary">Estimated Salary:</label>
+            <input type="text" id="salary" name="salary" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
+
+######
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predicted Result</h1>
+        <p>{{ ans }}</p>
+        <a href="/">Go back</a>
+    </div>
+</body>
+</html>
+
+
+################################################################
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Purchase Prediction</title>
+    <style>
+        body {
+            background-color: #a6d0e4; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            width: 450px;
+            background-color: #fff; 
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+            overflow: hidden;
+            transform: translateY(-10%);
+        }
+
+        .header {
+            background-color: #141010;
+            color: #fff;
+            text-align: center;
+            padding: 10px 10px;
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        form {
+            padding: 25px 30px;
+        }
+
+        label {
+            font-size: 19px;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input {
+            width: 95%;
+            padding: 12px 10px; 
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+
+        input:focus {
+            border-color: #4caf50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        button {
+            display: block; 
+            width: 98%; 
+            padding: 9px 12px;
+            background-color: #141010;
+            color: #fff;
+            border: none;
+            border-radius: 22px;
+            font-size: 27px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px auto 0 auto; 
+        }
+        
+
+        button:hover {
+            background-color: #000;
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Car Purchase Prediction
+        </div>
+        <form action="/predict" method="post">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age" required>
+
+            <label for="salary">Estimated Salary:</label>
+            <input type="text" id="salary" name="salary" placeholder="Enter your salary" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+#########################################################
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Purchase Prediction</title>
+    <style>
+        body {
+            background-color: #a6d0e4; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            flex-direction: column; 
+        }
+
+        .header {
+            color: #000;
+            text-align: center;
+            padding: 20px;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 100px;
+            
+        }
+
+        .container {
+            width: 450px;
+            background-color: #fff; 
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+            overflow: hidden;
+            transform: translateY(-30%);
+        }
+
+        form {
+            padding: 30px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input {
+            width: 95%;
+            padding: 12px 10px; 
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4caf50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        button {
+            display: block; 
+            width: 98%; 
+            padding: 12px;
+            background-color: #141010;
+            color: #fff;
+            border: none;
+            border-radius: 22px;
+            font-size: 22px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px auto 0 auto; 
+        }
+
+        button:hover {
+            background-color: #000;
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Car Purchase Prediction
+    </div>
+    <div class="container">
+        <form action="/predict" method="post">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age" required>
+
+            <label for="salary">Estimated Salary:</label>
+            <input type="text" id="salary" name="salary" placeholder="Enter your salary" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+#####################################
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Purchase Prediction</title>
+    <style>
+        body {
+            background-color: #a6d0e4; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            width: 450px;
+            background-color: #fff; 
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+            overflow: hidden;
+            transform: translateY(-10%);
+        }
+
+        .header {
+            background-color: #141010;
+            color: #fff;
+            text-align: center;
+            padding: 10px 10px;
+            font-size: 35px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        form {
+            padding: 20px 30px;
+        }
+
+        label {
+            font-size: 19px;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input {
+            width: 95%;
+            padding: 12px 10px; 
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+
+        input:focus {
+            border-color: #4caf50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        button {
+            display: block; 
+            width: 35%; 
+            padding: 5px 10px;
+            background-color: #141010;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 27px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px auto 0 auto;
+            letter-spacing: 0.6px;
+        }
+        
+
+        button:hover {
+            background-color: #000;
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Car Purchase Prediction
+        </div>
+        <form action="/predict" method="post">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age" required>
+
+            <label for="salary">Estimated Salary:</label>
+            <input type="text" id="salary" name="salary" placeholder="Enter your salary" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
