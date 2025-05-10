@@ -3,8 +3,8 @@ import joblib
 import numpy as np
 
 # Load the pre-trained KNN model and scaler
-model = joblib.load(r'C:\Users\HP\AI & ML Projects\Car_Price_Prediction\car_purchase_predictor.pkl')
-scaler = joblib.load(r'C:\Users\HP\AI & ML Projects\Car_Price_Prediction\scaler.pkl')
+model = joblib.load(r'C:\Users\user\Documents\Car_Price_Prediction\Car_Price_Prediction\car_purchase_predictor.pkl')
+scaler = joblib.load(r'C:\Users\user\Documents\Car_Price_Prediction\Car_Price_Prediction\scaler.pkl')
 
 st.title('Car Purchase Prediction')
 
